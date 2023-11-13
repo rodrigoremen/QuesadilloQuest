@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class GameManager : MonoBehaviour
     public GameObject deathEffect;
     public int currentCoins;
     public int hurtSound;
+
+    public string LevelToLoad;
+
+    public int levenEndMusic;
 
     // Start is called before the first frame update
     public void Awake()
@@ -90,5 +95,14 @@ public class GameManager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
+    }
+
+    public IEnumerator LevelEndWaiter()
+    {
+        AudioManager.instance.PlayMusic(levenEndMusic);
+        PlayerController.instance.stopMovement = true;
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(LevelToLoad);
+
     }
 }

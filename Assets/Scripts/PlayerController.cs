@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     public GameObject[] PlayerPieces;
     public float bounceForce = 8f;
     // Start is called before the first frame update
+
+    public bool stopMovement;
+
     public void Awake()
     {
         instance = this;
@@ -33,7 +36,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isKnocking)
+        if (!isKnocking && !stopMovement)
         {
             // Guardar la altura del salto
             float yStore = moveDirection.y;
@@ -92,8 +95,8 @@ public class PlayerController : MonoBehaviour
         if (isKnocking)
         {
             knockBackCounter -= Time.deltaTime;
-            
-            
+
+
             float yStore = moveDirection.y;
             moveDirection = (PlayerModel.transform.forward * -knockBackPower.x);
             moveDirection.y = yStore;
@@ -106,6 +109,13 @@ public class PlayerController : MonoBehaviour
             {
                 isKnocking = false;
             }
+        }
+
+        if (stopMovement)
+        {
+            moveDirection.y = moveDirection.y + (Physics.gravity.y * Time.deltaTime * gravityScale);
+            moveDirection = Vector3.zero;
+            controller.Move(moveDirection);
         }
 
         // Animación
