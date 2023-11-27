@@ -153,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496148061944434455}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3335687, y: -0.18776421, z: 0.06798002, w: 0.92133343}
+  m_LocalRotation: {x: 0.3335687, y: -0.18776426, z: 0.06798003, w: 0.92133343}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -647,7 +647,7 @@ MonoBehaviour:
   deathEffect: {fileID: 8852507172201779993, guid: 101b82d0486bb9d43922a7a16228a6a1, type: 3}
   currentCoins: 0
   hurtSound: 8
-  LevelToLoad: Test1
+  LevelToLoad: SampleScene
   levenEndMusic: 1
 --- !u!114 &8765692179059234157
 MonoBehaviour:
@@ -2544,7 +2544,7 @@ Transform:
   m_GameObject: {fileID: 2855671139997091022}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.1103144, y: -2.1043262, z: 7.6366997}
+  m_LocalPosition: {x: 2.7, y: 2.69, z: 0.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2914,8 +2914,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3042211755806947945}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22149384, y: -3.91088e-17, z: 8.882996e-18, w: 0.9751618}
-  m_LocalPosition: {x: 3.1103144, y: 1.7456737, z: 0.29669952}
+  m_LocalRotation: {x: 0.22149383, y: -0.000000032968863, z: 0.0000000074883975, w: 0.9751618}
+  m_LocalPosition: {x: 2.6999998, y: 6.54, z: -6.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3985,7 +3985,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 0674ca3d24acf4740927f0abf12d2d51, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -5497,10 +5497,10 @@ MonoBehaviour:
   coinText: {fileID: 1993945564897046654}
   pauseScreen: {fileID: 3646428398524933950}
   optionScreen: {fileID: 4455063910257756459}
-  levelSelectScreen: {fileID: 0}
-  mainMenuScreen: {fileID: 0}
   musicVolumeSlider: {fileID: 5347802030623107531}
   sfxVolumeSlider: {fileID: 4667831998871096975}
+  levelSelect: LevelSelect
+  mainMenu: MainMenu
 --- !u!1 &5597875302018713505
 GameObject:
   m_ObjectHideFlags: 0
@@ -6085,7 +6085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6174918684128021716}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31675494, y: -0.18896967, z: 0.06455344, w: 0.9272484}
+  m_LocalRotation: {x: 0.3167549, y: -0.18896972, z: 0.06455344, w: 0.9272484}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6279,7 +6279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6683331221882877255}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.29988116, y: -0.19010967, z: 0.06111463, w: 0.93284225}
+  m_LocalRotation: {x: 0.29988113, y: -0.19010969, z: 0.06111463, w: 0.9328422}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -1127,6 +1127,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.06455344
       objectReference: {fileID: 0}
+    - target: {fileID: 5290706272792162408, guid: a83afd8b951152243af85491bce32a62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5842420614672637281, guid: a83afd8b951152243af85491bce32a62, type: 3}
       propertyPath: m_Name
       value: LevelPack
