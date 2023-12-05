@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private float knockBackCounter;
     public Vector2 knockBackPower;
     public GameObject[] PlayerPieces;
-    public float bounceForce = 8f;
+    public float bounceForce = 16f;
     // Start is called before the first frame update
 
     public bool stopMovement;
