@@ -102,10 +102,24 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.PlayMusic(levenEndMusic);
         PlayerController.instance.stopMovement = true;
         yield return new WaitForSeconds(5f);
-         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
+
+        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_coins"))
+        {
+            if (currentCoins > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_coins"))
+            {
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_coins", currentCoins);
+            }
+
+        }
+        else
+        {
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_coins", currentCoins);
+        }
+
         SceneManager.LoadScene(LevelToLoad);
 
-       
+
 
     }
 }

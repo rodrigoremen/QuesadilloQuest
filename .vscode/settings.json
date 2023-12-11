@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "I2023tn.sln"
+    "dotnet.defaultSolution": "Videojuego-Unity2022.sln"
 }

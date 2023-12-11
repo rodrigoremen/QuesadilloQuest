@@ -1701,6 +1701,10 @@ MonoBehaviour:
   levelSelect: LevelSelect
   firstLevel: Test
   continueButton: {fileID: 1316753025}
+  levelNames:
+  - Test
+  - Level2
+  - Level3
 --- !u!1 &1974078946
 GameObject:
   m_ObjectHideFlags: 0
