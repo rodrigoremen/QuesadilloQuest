@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour
     public GameObject deathEffect;
     public int currentCoins;
     public int hurtSound;
-
+    
     public string LevelToLoad;
 
     public int levenEndMusic;
+
+     public bool isRespawn;
 
     // Start is called before the first frame update
     public void Awake()
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
         CameraController.instance.CMBrain.enabled = false;
 
         UIManager.instance.fadeToBlack = true;
+        isRespawn = true;
         Instantiate(deathEffect, PlayerController.instance.transform.position + new Vector3(0f, 1f, 0f), PlayerController.instance.transform.rotation);
         AudioManager.instance.PlaySFX(hurtSound);
         yield return new WaitForSeconds(2f);
@@ -62,6 +65,7 @@ public class GameManager : MonoBehaviour
         PlayerController.instance.gameObject.SetActive(true);
 
         HealthManager.instance.ResetHealth();
+        isRespawn = false;
     }
 
     public void SetSpawnPoint(Vector3 newSpawnPoint)

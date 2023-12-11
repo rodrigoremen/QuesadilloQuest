@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     public Text healthText;
     public Image healthImage;
     public Text coinText;
-    public GameObject pauseScreen, optionScreen;
+    public GameObject pauseScreen, optionScreen, levelSelectScreen, mainMenuScreen;
     public Slider musicVolumeSlider, sfxVolumeSlider;
     public string levelSelect, mainMenu;
 

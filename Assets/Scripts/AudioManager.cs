@@ -5,11 +5,12 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public int levelMusic;
     public static AudioManager instance;
     public AudioSource[] music;
     public AudioSource[] sfx;
     public AudioMixerGroup musicMixer, sfxMixer;
-    
+
     private void Awake()
     {
         instance = this;
@@ -22,7 +23,12 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void StopMusic()
+    {
+        music[2].Stop();
     }
 
     public void PlayMusic(int musicToPlay)
@@ -30,6 +36,7 @@ public class AudioManager : MonoBehaviour
         // for(int i = 0; i < music.Length; i++){
         //     music[i].Stop();
         // }
+
         music[musicToPlay].Play();
     }
 
@@ -45,7 +52,7 @@ public class AudioManager : MonoBehaviour
     }
 
     public void SetSFXLevel()
-    {   
+    {
         sfxMixer.audioMixer.SetFloat("SFXVol", UIManager.instance.sfxVolumeSlider.value);
     }
 }

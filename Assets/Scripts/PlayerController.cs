@@ -95,8 +95,8 @@ public class PlayerController : MonoBehaviour
         if (isKnocking)
         {
             knockBackCounter -= Time.deltaTime;
-
-
+            
+            
             float yStore = moveDirection.y;
             moveDirection = (PlayerModel.transform.forward * -knockBackPower.x);
             moveDirection.y = yStore;
