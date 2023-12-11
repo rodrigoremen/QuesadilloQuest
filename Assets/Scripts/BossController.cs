@@ -7,17 +7,16 @@ public class BossController : MonoBehaviour
     public static BossController instance;
     public Animator animator;
     public GameObject victoryZone;
-    public float waitToShowExit;
-    public int bossMusic,bossDeath, bossHurt, bossDeathShout;
+    public int bossMusic, bossDeath, bossHurt, bossDeathShout;
     public enum BossState // Estados del jefe
     {
-        intro,
+
         phase1,
         phase2,
         phase3,
         end,
     };
-    public BossState currentState = BossState.intro; // Estado actual del jefe, se encuera en la fase de introducción
+    public BossState currentState = BossState.phase1; // Estado actual del jefe, se encuera en la fase de phase1ducción
 
     private void Awake() // Se instancia el BossController
     {
@@ -26,18 +25,19 @@ public class BossController : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
-    public void OnEnable() {
+    public void OnEnable()
+    {
         AudioManager.instance.PlayMusic(bossMusic); // Se reproduce la música del jefe
     }
 
     void Update()
     {
-        if(GameManager.instance.isRespawn) // Si el jugador muere
+        if (GameManager.instance.isRespawn) // Si el jugador muere
         {
-            currentState = BossState.intro; // Se reinicia el estado del jefe
+            currentState = BossState.phase1; // Se reinicia el estado del jefe
             animator.SetBool("Phase1", false); // Se reinicia la animación de la fase 1
             animator.SetBool("Phase2", false); // Se reinicia la animación de la fase 2
             animator.SetBool("Phase3", false); // Se reinicia la animación de la fase 3
@@ -54,12 +54,14 @@ public class BossController : MonoBehaviour
     public void DamageBoss() // Función para dañar al jefe
     {
         AudioManager.instance.PlaySFX(bossHurt); // Se reproduce el sonido de daño
-        currentState++; // Se aumenta el estado del jefe
-        if(currentState != BossState.end) // Si el estado no es el final
+        if (currentState != BossState.end) // Si el estado no es el final
         {
             animator.SetTrigger("Hurt"); // Se reproduce la animación de daño
         }
-        switch(currentState) // Se cambia el estado del jefe
+
+        currentState++; // Se aumenta el estado del jefe
+
+        switch (currentState) // Se cambia el estado del jefe
         {
             case BossState.phase1:
                 animator.SetBool("Phase1", true);
@@ -69,15 +71,19 @@ public class BossController : MonoBehaviour
                 animator.SetBool("Phase1", false);
                 break;
             case BossState.phase3:
-                animator.SetBool("Phase3", true);
+                animator.SetBool("Phase1", false);
                 animator.SetBool("Phase2", false);
+                animator.SetBool("Phase3", true);
                 break;
             case BossState.end:
+                Debug.Log("Boss defeated! Initiating end sequence.");
+                animator.SetBool("Phase3", false);
                 animator.SetTrigger("End");
                 StartCoroutine(EndBoss());
                 break;
         }
     }
+
 
     IEnumerator EndBoss() // Corrutina para terminar el jefe
     {
@@ -85,7 +91,7 @@ public class BossController : MonoBehaviour
         AudioManager.instance.PlaySFX(bossDeathShout);
         AudioManager.instance.PlayMusic(AudioManager.instance.levelMusic);
 
-        yield return new WaitForSeconds(waitToShowExit);
+        yield return new WaitForSeconds(2.0f);
         victoryZone.SetActive(true);
     }
 }
