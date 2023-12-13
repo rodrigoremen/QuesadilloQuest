@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private float knockBackCounter;
     public Vector2 knockBackPower;
     public GameObject[] PlayerPieces;
-    public float bounceForce = 8f;
+    public float bounceForce = 16f;
     // Start is called before the first frame update
 
     public bool stopMovement;
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
             float yStore = moveDirection.y;
             // Movimiento
             // Mover al personaje en base a la cámara
-            moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
+            moveDirection = (transform.forward * Input.GetAxisRaw("Vertical")) + (transform.right * Input.GetAxisRaw("Horizontal"));
             // Normalizar el movimiento
             moveDirection.Normalize();
             moveDirection = moveDirection * moveSpeed;
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             // Mover la cámara
 
             // Validación para que la cámara no se mueva cuando el personaje no se mueve
-            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             {
                 transform.rotation = Quaternion.Euler(0f, playerCamera.transform.rotation.eulerAngles.y, 0f);
                 // Rotar al personaje en base a la cámara
@@ -95,8 +95,8 @@ public class PlayerController : MonoBehaviour
         if (isKnocking)
         {
             knockBackCounter -= Time.deltaTime;
-
-
+            
+            
             float yStore = moveDirection.y;
             moveDirection = (PlayerModel.transform.forward * -knockBackPower.x);
             moveDirection.y = yStore;

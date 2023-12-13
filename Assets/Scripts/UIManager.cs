@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class UIManager : MonoBehaviour
@@ -15,6 +16,8 @@ public class UIManager : MonoBehaviour
     public Text coinText;
     public GameObject pauseScreen, optionScreen, levelSelectScreen, mainMenuScreen;
     public Slider musicVolumeSlider, sfxVolumeSlider;
+    public string levelSelect, mainMenu;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -67,12 +70,14 @@ public class UIManager : MonoBehaviour
 
     public void LevelSelect()
     {
-
+        SceneManager.LoadScene(levelSelect);
+        Time.timeScale = 1f;
     }
 
     public void MainMenu()
     {
-
+        SceneManager.LoadScene(mainMenu);
+        Time.timeScale = 1f;
     }
 
     public void SetMusicLevel()
